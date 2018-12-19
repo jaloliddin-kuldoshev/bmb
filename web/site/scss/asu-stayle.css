@@ -1,0 +1,333 @@
+.container-des {
+
+}
+
+.container-asu{
+    padding: 0;
+}
+
+
+img {
+    max-width: 100%;
+}
+h1, h2, h3, h4, h5 {
+    font-family: 'Open Sans';
+    font-weight: bold;
+}
+
+.asu_body_img {
+    height: 100%;
+}
+
+.asu_body_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -o-object-fit: cover;
+
+}
+
+.asubody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.asu_body_text p{
+    font-size: 18px;
+    padding-bottom: 20px;
+    line-height: 1.1;
+}
+
+.asu_body_text{
+    max-width: 525px;
+}
+
+.asu_body_contact_text{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    line-height: 1.7;
+    width: 100%;
+}
+
+.asu_body_contact_text h6 p{
+    font-size: 18px;
+
+}
+
+.asu_body_contact_text p{
+    padding-bottom: 55px;
+
+}
+
+.asu_body_contact_text h6{
+    color: #00aaaf;
+}
+
+
+
+.asu_name_email{
+    margin-bottom: 25px;
+}
+
+.asu_comp_phone{
+    margin-bottom: 25px;
+}
+
+.asu_name_email label{
+    color: #00aaaf;
+}
+
+.asu_comp_phone label{
+    color: #00aaaf;
+}
+
+.asu_comment{
+    width: 100%;
+    justify-content: space-between;
+}
+
+.asu_comment label{
+    color: #00aaaf;
+}
+
+.asu_body_contact_text input{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 10px 20px 10px;
+
+}
+
+.asu_body_contact_text textarea{
+    width: 100%;
+    height: 160px;
+    border: 1px solid #ccc;
+    padding: 10px 20px 10px;
+}
+
+.contact_text{
+    width: 340px;
+    height: 50px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+
+
+.asu_documents_text{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: relative;
+}
+
+.asu_documents_text::before {
+    content: "";
+    height: 50px;
+    width: 50px;
+    top: 50%;
+    margin-top: -25px;
+    right: 0;
+    position: absolute;
+    background: url(../images/icon-set-pdf.png) no-repeat;
+    transition: all 0.3s ease;
+}
+
+.asu_documents_text:hover::before {
+    background-position: -50px 0;
+}
+
+.asu_documents_text p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.asu-doc-txt-wrap .asu_documents_text {
+    border-top: 1px solid  #00aaaf;
+}
+
+.asu-doc-txt-wrap .asu_documents_text:first-child {
+    border-top: 0;
+}
+
+.asu_documents_text a {
+    color: #00aaaf;
+    display: flex;
+    width: 100%;
+    height: 75px;
+    align-items: center;
+    line-height: 1.2;
+    text-decoration: none;
+
+}
+
+.asu_documents_text input{
+    width: 100%;
+    height: 60px;
+    display: inline-block;
+    border-bottom: 1px solid #00aaaf;
+    padding: 10px 20px 10px;
+    margin-bottom: 30px;
+}
+
+.asu_documents_text input:focus{
+    border-bottom: 1px solid rgba(0, 170, 175, 0.37);
+}
+
+.asu_documents_text p img{
+}
+
+.asu_legalbase_text {
+    padding-top: 120px;
+    padding-bottom: 140px;
+}
+
+.asu_legalbase_text label{
+    font-size: 22px;
+    line-height: 1.7;
+}
+
+.asu_legalbase_text input{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #00aaaf;
+    padding: 10px 20px 10px;
+    margin-bottom: 30px;
+}
+
+.asu_frm-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.asu_frm-wrap>div {
+    flex: 0 0 48%;
+}
+
+.asu_legalbase_text input:focus{
+    border-bottom: 1px solid rgba(0, 170, 175, 0.37);
+}
+
+.asu_legalbase_text form label i{
+    font-size: 40px;
+    color: #ccc;
+}
+
+.asu_meber_p_t{
+    width: 100%;
+    display: flex;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+}
+
+.asu_member_photo img{
+    width: 100%;
+
+}
+
+.asu_member_text p{
+    font-size: 16px;
+}
+
+.asu_member_text p{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    display: flex;
+    line-height: 1.5;
+}
+
+.asu_member_text{
+    padding-top: 30px;
+    overflow-y: hidden;
+}
+
+.asu_member_photo{
+    padding-right: 60px;
+    width: 100%;
+}
+
+.bottom_hr{
+    border-bottom: 1px solid #00aaaf;
+}
+
+.asu_service_text{
+    width: 100%;
+}
+
+.asu_service_text h6 img{
+    padding-right: 20px;
+}
+
+.asu_service_text{
+    padding-top: 70px;
+    padding-bottom: 115px;
+}
+
+.asu_service_text h5{
+    padding-top: 45px;
+    font-size: 27px;
+}
+
+.asu_service_text h6{
+    padding-top: 45px;
+    padding-bottom: 45px;
+    color: #00aaaf;
+    font-size: 18px;
+    font-weight: unset;
+}
+
+.asu_service_text p{
+    line-height: 1.5;
+    font-size: 18px;
+}
+
+.asu_service_text span{
+    color: black;
+    padding-left: 20px;
+}
+
+.asu_service_text a{
+    color: #00aaaf;
+}
+
+.asu_con_btn{
+    border-radius: 0;
+    margin-top: 20px;
+    width: 200px;
+    padding: 10px;
+    background-color: #274162;
+    color: #fff;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .container-des {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
