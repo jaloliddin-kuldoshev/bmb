@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use mdm\admin\models\form\ChangePassword;
 use mdm\admin\models\form\Login;
 use Yii;
 use yii\web\Controller;
@@ -17,6 +18,7 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
+        Yii::$app->language = 'ru';
         return $this->render('index');
     }
 
@@ -33,16 +35,31 @@ class DefaultController extends Controller
         $model = new Login();
 
         if ($model->load(Yii::$app->getRequest()->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->redirect('/admin');
         } else {
             return $this->render('login', [
                 'model' => $model,
             ]);
         }
     }
-	public function actionLogout()
-	{
-		Yii::$app->user->logout();
-		return Yii::$app->response->redirect('/admin/default/login');
-	}
+
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+        return Yii::$app->response->redirect('/admin/default/login');
+    }
+
+    public function actionChangePassword()
+    {
+        $this->layout = 'login';
+        $model = new ChangePassword();
+        if ($model->load(Yii::$app->getRequest()->post()) && $model->change()) {
+            return $this->goHome();
+        }
+
+        return $this->render('change-password', [
+            'model' => $model,
+        ]);
+    }
+
 }

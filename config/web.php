@@ -20,7 +20,7 @@ $config = [
         ],
         'i18n' => [
             'translations' => [
-                'app*' => [
+                '*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@app/messages',
                     'sourceLanguage' => 'ru',
@@ -106,7 +106,7 @@ $config = [
         'allowActions' => [
             'site/*',
             //'roles/*',
-              //'gii/*',
+              'gii/*',
             //'admin/*',
             //'debug/*',
             'elfinder/*',

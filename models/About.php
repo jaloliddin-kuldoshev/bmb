@@ -17,6 +17,7 @@ use Yii;
 class About extends \yii\db\ActiveRecord
 {
     public $photo;
+    public $about1;
 
     /**
      * {@inheritdoc}
@@ -33,8 +34,8 @@ class About extends \yii\db\ActiveRecord
     {
         return [
             [['text_ru', 'text_en', 'text_uz'], 'string'],
-            [['banner'], 'string', 'max' => 255],
-            [['photo'], 'safe'],
+            [['banner', 'about'], 'string', 'max' => 255],
+            [['photo', 'about1'], 'safe'],
         ];
     }
 
@@ -45,6 +46,12 @@ class About extends \yii\db\ActiveRecord
                 'class' => UploadBehavior::className(),
                 'attribute' => 'photo',
                 'pathAttribute' => 'banner',
+                'baseUrlAttribute' => false,
+            ],
+            [
+                'class' => UploadBehavior::className(),
+                'attribute' => 'about1',
+                'pathAttribute' => 'about',
                 'baseUrlAttribute' => false,
             ],
 

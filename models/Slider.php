@@ -41,7 +41,7 @@ class Slider extends \yii\db\ActiveRecord
             [['text_ru', 'text_uz', 'text_en'], 'string'],
             [['created_at', 'updated_at'], 'integer'],
             [['photo'], 'safe'],
-            [['title_ru', 'title_uz', 'title_en', 'img'], 'string', 'max' => 255],
+            [['title_ru', 'title_uz', 'title_en', 'img', 'link'], 'string', 'max' => 255],
         ];
     }
 

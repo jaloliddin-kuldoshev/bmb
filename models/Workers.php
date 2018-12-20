@@ -38,7 +38,7 @@ class Workers extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['company_id', 'title_ru'], 'required'],
+            [['title_ru'], 'required'],
             [['company_id'], 'integer'],
             [['img', 'title_ru', 'title_en', 'title_uz', 'position_ru', 'position_en', 'position_uz'], 'string', 'max' => 255],
             [['company_id'], 'exist', 'skipOnError' => true, 'targetClass' => Company::className(), 'targetAttribute' => ['company_id' => 'id']],

@@ -17,7 +17,7 @@ $about = \app\models\About::findOne(2);
                         <div class="bmb_top_slider_text">
                             <h2><?= $item->{'title_' . Yii::$app->language} ?></h2>
                             <p><?= substr(strip_tags($item->{'text_' . Yii::$app->language}), 0, 200) ?></p>
-                            <a href=""><?= Yii::t('app', 'Перейти') ?></a>
+                            <a href="<?= $item->link ?>"><?= Yii::t('app', 'Перейти') ?></a>
                         </div>
                     </div>
                 </div>
@@ -31,15 +31,18 @@ $about = \app\models\About::findOne(2);
     <div class="bmb_about_slider">
         <div class="bmb_about_slider_img">
             <div class="bmb_about_slider_img_one">
-                <img src="/site/images/about_slider.png" alt="">
+                <img src="/uploads/<?= $about->about ?>" alt="">
             </div>
         </div>
         <div class="bmb_about_slider_texts">
             <div class="bmb_about_slider_text">
                 <h3><?= Yii::t('app', 'О Компании') ?></h3>
                 <?= mb_substr($about->{'text_' . Yii::$app->language}, 0, 1450) ?>
+                <div style="margin-top: 20px;"><a
+                            style="display:inline-block;background-color: #274162; padding: 10px 20px; cursor: pointer; color: #fff; text-transform: uppercase;"
+                            href="<?= \yii\helpers\Url::to(['site/about']) ?>"><?= Yii::t('app', 'Подробно') ?></a>
+                </div>
             </div>
-			<div style="margin-top: 30px;"><a href="<?= \yii\helpers\Url::to(['site/about']) ?>"><?= Yii::t('app', 'Подробно >>') ?></a></div>
         </div>
     </div>
 </section>
@@ -62,8 +65,9 @@ $about = \app\models\About::findOne(2);
             </div>
             <?php if ($k == 2) {
                 $k = 1;
-            }else{
-            $k++;} endforeach; ?>
+            } else {
+                $k++;
+            } endforeach; ?>
     </div>
 </section>
 <!--end branches block-->
@@ -73,24 +77,28 @@ $about = \app\models\About::findOne(2);
         <div class="col-lg-5 des-ab-wrkr-sldr-txt-wrap">
             <div class="des-ab-wrkr-sldr-txt-con">
 
-                <?php foreach ($review as $item): ?>
-                    <div class="des-ab-wrkr-sldr-txt">
-                        <div class="des-ab-wrkr-sldr-txt-img">
-                            <img src="/uploads/<?= $item->img ?>" alt="">
+                <?php if (!empty($review)) {
+                    foreach ($review as $item): ?>
+                        <div class="des-ab-wrkr-sldr-txt">
+                            <div class="des-ab-wrkr-sldr-txt-img">
+                                <img src="/uploads/<?= $item->img ?>" alt="">
+                            </div>
+                            <div class="des-ab-wrkr-sldr-txt-des" style="text-align:left;">
+                                <span><?= strip_tags($item->{'text_' . Yii::$app->language}) ?></span>
+                            </div>
                         </div>
-                        <div class="des-ab-wrkr-sldr-txt-des" style="text-align:left;">
-                            <span ><?= strip_tags($item->{'text_' . Yii::$app->language}) ?></span>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach;
+                } ?>
             </div>
         </div>
         <div class="col-lg-7 no-padding des-ab-wrkr-sldr-img-con">
             <div class="des-ab-wrkr-sldr-img-wrap">
-                <?php foreach ($review as $item): ?>
-                    <div class="des-ab-wrkr-sldr-img-elem"
-                         style="background-image: url(/site/images/worker-foto.png)"></div>
-                <?php endforeach; ?>
+                <?php if (!empty($review)) {
+                    foreach ($review as $item): ?>
+                        <div class="des-ab-wrkr-sldr-img-elem"
+                             style="background-image: url(/site/images/worker-foto.png)"></div>
+                    <?php endforeach;
+                } ?>
             </div>
         </div>
     </div>
@@ -106,33 +114,34 @@ $about = \app\models\About::findOne(2);
 <section class="bmb_news">
     <div class="bmb_news_wrap">
         <?php foreach ($news as $key => $item): ?>
-                <?php if ($key == 0 || $key == 1): ?>
-                    <div class="bmb_news_item">
-                        <div class="bmb_news_item_img">
-                            <img src="/uploads/<?= $item->img ?>" alt="">
-                        </div>
-                        <div class="bmb_news_item_text">
+            <?php if ($key == 0 || $key == 1): ?>
+                <div class="bmb_news_item">
+                    <div class="bmb_news_item_img">
+                        <img src="/uploads/<?= $item->img ?>" alt="">
+                    </div>
+                    <div class="bmb_news_item_text">
                         <span><?= date('d/m/Y', $item->created_at) ?>
                             / <?= ($item->type == 1) ? Yii::t('app', 'Новости') : Yii::t('app', 'Новости Компании') ?></span>
-                            <a href="<?= \yii\helpers\Url::to(['site/one-news', 'id' => $item->id]) ?>">
-                                <h4><?= $item->{'title_' . Yii::$app->language} ?></h4></a>
-                            <p><?= substr(strip_tags($item->{'text_' . Yii::$app->language}), 0, 100) ?></p>
-                        </div>
+                        <a href="<?= \yii\helpers\Url::to(['site/one-news', 'id' => $item->id]) ?>">
+                            <h4><?= $item->{'title_' . Yii::$app->language} ?></h4></a>
+                        <p><?= substr(strip_tags($item->{'text_' . Yii::$app->language}), 0, 100) ?></p>
                     </div>
-                <?php endif; ?>
-                <?php if ($key == 2 || $key == 3): ?>
-                    <div class="bmb_news_item">
-                        <div class="bmb_news_item_text">
-                            <span><?= date('d/m/Y', $item->created_at) ?> / <?= ($item->type == 1) ? Yii::t('app', 'Новости') : Yii::t('app', 'Новости Компании') ?> </span>
-                            <a href="<?= \yii\helpers\Url::to(['site/one-news', 'id' => $item->id]) ?>">
-                                <h4><?= $item->{'title_' . Yii::$app->language} ?></h4></a>
-                            <p><?= substr(strip_tags($item->{'text_' . Yii::$app->language}), 0, 100) ?></p>
-                        </div>
-                        <div class="bmb_news_item_img">
-                            <img src="/uploads/<?= $item->img ?>" alt="">
-                        </div>
+                </div>
+            <?php endif; ?>
+            <?php if ($key == 2 || $key == 3): ?>
+                <div class="bmb_news_item">
+                    <div class="bmb_news_item_text">
+                        <span><?= date('d/m/Y', $item->created_at) ?>
+                            / <?= ($item->type == 1) ? Yii::t('app', 'Новости') : Yii::t('app', 'Новости Компании') ?> </span>
+                        <a href="<?= \yii\helpers\Url::to(['site/one-news', 'id' => $item->id]) ?>">
+                            <h4><?= $item->{'title_' . Yii::$app->language} ?></h4></a>
+                        <p><?= substr(strip_tags($item->{'text_' . Yii::$app->language}), 0, 100) ?></p>
                     </div>
-                <?php endif; ?>
+                    <div class="bmb_news_item_img">
+                        <img src="/uploads/<?= $item->img ?>" alt="">
+                    </div>
+                </div>
+            <?php endif; ?>
         <?php endforeach; ?>
 
     </div>

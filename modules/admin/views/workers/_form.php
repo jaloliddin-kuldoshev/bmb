@@ -7,14 +7,15 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\Workers */
 /* @var $form yii\widgets\ActiveForm */
 $item = \yii\helpers\ArrayHelper::map(\app\models\Company::find()->all(), 'id', 'title_ru');
-$item[] = 'О нас';
+$item[null] = 'О компании';
+
 ?>
 
 <div class="workers-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'company_id')->dropDownList($item)	?>
+    <?= $form->field($model, 'company_id')->dropDownList($item) ?>
 
     <?= $form->field($model, 'photo')->widget(
         \trntv\filekit\widget\Upload::className(),

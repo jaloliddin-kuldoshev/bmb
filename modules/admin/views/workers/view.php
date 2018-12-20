@@ -32,7 +32,11 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'company_id',
                 'value' => function ($model) {
-                    return $model->company->title_ru;
+                    if ($model->company_id == null) {
+                        return "О компании";
+                    } else {
+                        return $model->company->title_ru;
+                    }
                 }
 
             ],

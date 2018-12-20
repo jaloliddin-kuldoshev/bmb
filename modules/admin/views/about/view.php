@@ -48,6 +48,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'format' => 'html'
             ],
+            [
+                'attribute' => 'about',
+                'value' => function ($model) {
+                    return Html::img('/uploads/' . $model->about, ['style' => 'max-width:100px']);
+                },
+                'format' => 'html',
+                'label' => 'Main Page',
+            ],
         ],
     ]) ?>
 

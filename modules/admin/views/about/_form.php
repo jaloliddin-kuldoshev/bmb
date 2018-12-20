@@ -14,6 +14,15 @@ use mihaildev\elfinder\ElFinder;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'about1')->widget(
+        \trntv\filekit\widget\Upload::className(),
+        [
+            'url' => ['/admin/file-storage/upload'],
+            'sortable' => true,
+            'maxFileSize' => 10000000, // 10 MiB
+        ])->label('Main Page');
+    ?>
+
     <?= $form->field($model, 'text_ru')->widget(CKEditor::className(), [
         'editorOptions' => ElFinder::ckeditorOptions('elfinder', ['height' => 300]),
     ])->label('Content ru'); ?>

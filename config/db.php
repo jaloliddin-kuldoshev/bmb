@@ -4,7 +4,7 @@ return [
     'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=localhost;port=3306;dbname=bmb',
     'username' => 'root',
-    'password' => '$zL#m%3w10Ea$h',
+    'password' => '',
     'charset' => 'utf8',
     'tablePrefix' => '',
 

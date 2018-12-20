@@ -30,6 +30,7 @@ use mihaildev\elfinder\ElFinder;
         'editorOptions' => ElFinder::ckeditorOptions('elfinder', ['height' => 300]),
     ])->label('Content en'); ?>
 
+    <?= $form->field($model, 'link')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'photo')->widget(
         \trntv\filekit\widget\Upload::className(),

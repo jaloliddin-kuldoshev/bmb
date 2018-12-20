@@ -223,8 +223,8 @@ AdminAsset::register($this);
                             </a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="#"><i class="ti-user"></i> Profile</a></li>
-                                    <li><a href="#"><i class="ti-settings"></i> Setting</a></li>
+<!--                                    <li><a href="#"><i class="ti-user"></i> Profile</a></li>-->
+                                    <li><a href="<?= Url::to(['default/change-password'])?>"><i class="ti-settings"></i> Setting</a></li>
                                     <li><a  href="<?= Url::to(['default/logout'])?>" data-method="post"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
